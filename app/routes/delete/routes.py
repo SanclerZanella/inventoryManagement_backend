@@ -9,3 +9,13 @@ delete_item = Blueprint("delete", __name__)
 
 @delete_item.route('/delete_item/<int:id>', methods=["GET", "POST"])
 def delete(id):
+  product_to_delete = DeletedInventory.query.get_or_404(id)
+
+  try:
+        db.session.delete(product_to_delete)
+        db.session.commit()
+        flash('Item permanently deleted!')
+        return redirect('/')
+  except:
+        flash('There was a problem deleting that product')
+        return redirect('/')
