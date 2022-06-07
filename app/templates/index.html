@@ -45,11 +45,11 @@
             <td class="text-center">{{ product.price }}</td>
             <td class="text-center">{{ product.quantity }}</td>
             <td class="text-center">
-              <button id="updateBtn_{{ product.id }}" class="updateBtn my-1" data-modal="#updateItemModal_{{ product.id }}">Update</button>
+              <button id="updateBtn_{{ product.id }}" class="updateBtn my-1 btn btn-success btn-sm" data-modal="#updateItemModal_{{ product.id }}">Update</button>
               <!-- Update item Modal -->
               {% include "partials/index/_updateItemModal.html" %}
               
-              <button id="removeBtn_{{ product.id }}" class="removeBtn my-1" data-modal="#removeItemModal_{{ product.id }}">
+              <button id="removeBtn_{{ product.id }}" class="removeBtn my-1 btn btn-danger btn-sm" data-modal="#removeItemModal_{{ product.id }}">
                 Remove
               </button>
               <!-- Remove item Modal -->
@@ -71,7 +71,7 @@
       {% if deleted_products|length < 1 %}
         <div class="row no-gutters">
           <div class="col-12 text-center">
-            <h2>The bin is empty, deleted products will appear here!</h2>
+            <h2>The bin is empty, removed items will appear here!</h2>
           </div>
         </div>
       {% else %}
@@ -93,8 +93,11 @@
             <td class="text-center">{{ product.price }}</td>
             <td class="text-center">{{ product.quantity }}</td>
             <td class="text-center">
-              <button class="my-1 mx-auto">Restore</button>
-              <button class="my-1 mx-auto">Delete</button>
+              
+              <a href="{{ url_for('restore.restore', id=product.id) }}" class="my-1 mx-auto btn btn-success btn-sm">Restore</a>
+              
+              <button class="my-1 mx-auto btn btn-danger btn-sm">Delete</button>
+              
             </td>
           </tr>
           {% endfor %}
