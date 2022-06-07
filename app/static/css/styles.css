@@ -1,0 +1,67 @@
+/* Navbar */
+
+nav {
+    border-bottom: 1px solid rgb(0, 155, 155);
+    background-color: rgb(1, 95, 95);
+}
+
+.nav-item {
+    font-weight: 600;
+    font-size: 2em;
+    letter-spacing: 0.5px;
+    color: rgb(0, 155, 155);
+    font-family: 'Fira Sans', sans-serif;
+}
+
+a.navSmFont {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1em;
+    letter-spacing: 0.5px;
+    color: rgb(0, 155, 155);
+    font-family: 'Fira Sans', sans-serif;
+}
+
+a.navSmFont:hover {
+    color: #fff;
+}
+
+.nav-link {
+    margin: .5rem 0;
+}
+
+.dropdown {
+    margin: .8rem 0;
+}
+
+.nav-item i,
+.nav-item a {
+    color: rgb(0, 155, 155) !important;
+    line-height: 42px;
+    cursor: pointer;
+}
+
+.nav-item i:hover,
+.nav-item a:hover {
+    color: #fff !important;
+}
+
+.activeItem a,
+.activeItem i {
+    color: #fff !important;
+}
+
+/* Footer */
+
+footer {
+    height: 5vh;
+    border-top: 1px solid rgb(0, 155, 155);
+    background-color: rgb(1, 95, 95);
+}
+
+#copyright {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 800;
+    font-size: 1.2em;
+    color: #fff;
+}
