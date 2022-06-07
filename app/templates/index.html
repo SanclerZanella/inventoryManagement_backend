@@ -1,4 +1,110 @@
 {% extends 'base.html' %}
+
+<!--vvv Custom Style vvv-->
+{% block styles %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}" type="text/css">
+{% endblock %}
+
 {% block content %}
-<h1>PAGE RUNNING</h1>
+  <div class="row no-gutters">
+    
+    <div class="col-10 mt-3 mb-1">
+      
+      <!-- Add New Item Modal -->
+      {% include "partials/index/_addItemModal.html" %}
+      
+    </div>
+    
+    <div class="col-10 px-3 mx-auto mb-3 invtSection">
+      <h1 class="text-center">
+        Inventory
+      </h1>
+
+      {% if products|length < 1 %}
+        <div class="row no-gutters">
+          <div class="col-12 text-center">
+            <h2>The inventory is empty!</h2>
+          </div>
+        </div>
+      {% else %}
+        <table class="table text-center table-bordered">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Product</th>
+            <th scope="col">Description</th>
+            <th scope="col">Price</th>
+            <th scope="col">Qty</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for product in products %}
+            <tr>
+            <td>{{ product.name }}</td>
+            <td>{{ product.description }}</td>
+            <td>{{ product.price }}</td>
+            <td>{{ product.quantity }}</td>
+            <td>
+              <button>Update</button>
+              
+              <button id="removeBtn_{{ product.id }}" class="removeBtn">Remove</button>
+              <!-- Remove item Modal -->
+              {% include "partials/index/_removeItemModal.html" %}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% endif %}
+      
+    </div>
+
+    <div class="col-10 px-3 mx-auto mb-3 invtSection">
+      <h1 class="text-center">
+        Removed Items
+      </h1>
+
+      {% if deleted_products|length < 1 %}
+        <div class="row no-gutters">
+          <div class="col-12 text-center">
+            <h2>The bin is empty, deleted products will appear here!</h2>
+          </div>
+        </div>
+      {% else %}
+        <table class="table text-center table-bordered">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Product</th>
+            <th scope="col">Delete message</th>
+            <th scope="col">Price</th>
+            <th scope="col">Qty</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for product in deleted_products %}
+            <tr>
+            <td>{{ product.name }}</td>
+            <td>{{ product.reason_for_deletion }}</td>
+            <td>{{ product.price }}</td>
+            <td>{{ product.quantity }}</td>
+            <td>
+              <button>Update</button>
+              <button>Remove</button>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% endif %}
+      
+    </div>
+    
+  </div>
+{% endblock %}
+
+<!--vv Custom Scripts vv-->
+{% block scripts %}
+  <!-- JavaScript file -->
+  <script src="{{ url_for('static', filename='js/index.js') }}"></script>
 {% endblock %}

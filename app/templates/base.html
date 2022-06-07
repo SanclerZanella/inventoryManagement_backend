@@ -16,8 +16,7 @@
 
     <!-- bootstrap css link -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
-        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous"
-        type="text/css">
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
     <!-- css file -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" type="text/css">
@@ -33,7 +32,7 @@
     <header>
 
         <!-- Navbar from bootstrap -->
-        {% include "partials/_navbar.html" %}
+        {% include "partials/base/_navbar.html" %}
 
     </header>
 
@@ -46,7 +45,7 @@
                 {% for message in messages%}
                   <div class="row no-gutters flashes">
                       <div class="col-12 text-center">
-                          <h4>{{ message }}</h4>
+                          <h4><i class="fas fa-exclamation-triangle"></i> {{ message }}</h4>
                       </div>
                   </div>
                 {% endfor %}
@@ -71,22 +70,12 @@
     </footer>
 
     <!--vvv External Resources vvv-->
-
-    <!-- Bootstrap JS Bundle Scripts -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
-    </script>
+    <script src="https://kit.fontawesome.com/169bbd8201.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" 
+     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
      integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous">
     </script>
-
-    <!-- Jquery 3.6.0 minified -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
-    </script>
-
-    <!-- Fontawesome Kit script -->
-    <script src="https://kit.fontawesome.com/169bbd8201.js" crossorigin="anonymous"></script>
 
     <!-- JavaScript file -->
     <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>

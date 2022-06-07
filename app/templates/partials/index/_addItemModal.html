@@ -1,0 +1,42 @@
+<!-- Button trigger modal -->
+<button class="btn btn-primary addItemBtn">
+  Add New Item to Inventory
+</button>
+
+<!-- Add New Item modal -->
+<div id="addNewItemModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-header modal-content">
+        <span class="close">&times;</span>
+    </div>
+    <div class="modal-body modal-content">
+      
+        <form action="{{ url_for('index.index') }}" method="POST">
+          
+          <div class="mb-3">
+            <label for="product_name" class="form-label">Product Name</label>
+            <input type="text" class="form-control" id="product_name" name="productName">
+          </div>
+          
+          <div class="mb-3">
+            <label for="product_desc" class="form-label">Product Description</label>
+            <input type="text" class="form-control" id="product_desc" name="productDesc">
+          </div>
+          
+          <div class="mb-3">
+            <label for="product_price" class="form-label">Product Price</label>
+            <input type="number" class="form-control" id="product_price" name="productPrice" min="0" step=".01">
+          </div>
+
+          <div class="mb-3">
+            <label for="product_qty" class="form-label">Product Quantity</label>
+            <input type="number" class="form-control" id="product_qty" name="productQty">
+          </div>
+          
+          <button type="submit" class="btn btn-primary">Add Item</button>
+        </form>
+      
+    </div>
+
+</div>

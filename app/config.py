@@ -7,5 +7,6 @@ class Config:
   '''
   Config settings and environmental variables
   '''
-  MAP_KEY = os.environ.get("MAP_KEY")
-  DATABASE_URI = os.environ.get("DATABASE_URI")
+  SECRET_KEY = os.environ.get("SECRET_KEY")
+  DATABASE_URI = f"sqlite:///{os.path.join(os.path.dirname(os.path.realpath(__file__)),'inventory.db')}"
+  
