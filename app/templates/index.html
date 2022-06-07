@@ -8,7 +8,7 @@
 {% block content %}
   <div class="row no-gutters">
     
-    <div class="col-10 px-3 mx-auto mt-3 mb-1 text-center">
+    <div class="col-10 px-3 mx-auto mt-3 mb-1">
       
       <!-- Add New Item Modal -->
       {% include "partials/index/_addItemModal.html" %}
@@ -27,24 +27,24 @@
           </div>
         </div>
       {% else %}
-        <table class="table text-center table-bordered">
+        <table class="table table-bordered">
         <thead class="thead-dark">
           <tr>
-            <th scope="col">Product</th>
-            <th scope="col">Description</th>
-            <th scope="col">Price</th>
-            <th scope="col">Qty</th>
-            <th scope="col">Action</th>
+            <th class="text-center" scope="col">Product</th>
+            <th class="text-center" scope="col">Description</th>
+            <th class="text-center" scope="col">Price</th>
+            <th class="text-center" scope="col">Qty</th>
+            <th class="text-center" scope="col">Action</th>
           </tr>
         </thead>
         <tbody>
           {% for product in products %}
             <tr>
-            <td>{{ product.name }}</td>
-            <td>{{ product.description }}</td>
-            <td>{{ product.price }}</td>
-            <td>{{ product.quantity }}</td>
-            <td>
+            <td class="text-center">{{ product.name }}</td>
+            <td class="text-center">{{ product.description }}</td>
+            <td class="text-center">{{ product.price }}</td>
+            <td class="text-center">{{ product.quantity }}</td>
+            <td class="text-center">
               <button id="updateBtn_{{ product.id }}" class="updateBtn my-1" data-modal="#updateItemModal_{{ product.id }}">Update</button>
               <!-- Update item Modal -->
               {% include "partials/index/_updateItemModal.html" %}
@@ -75,9 +75,9 @@
           </div>
         </div>
       {% else %}
-        <table class="table text-center table-bordered">
+        <table class="table table-bordered">
         <thead class="thead-dark">
-          <tr>
+          <tr class="text-center">
             <th scope="col">Product</th>
             <th scope="col">Delete message</th>
             <th scope="col">Price</th>
@@ -88,13 +88,13 @@
         <tbody>
           {% for product in deleted_products %}
             <tr>
-            <td>{{ product.name }}</td>
-            <td>{{ product.reason_for_deletion }}</td>
-            <td>{{ product.price }}</td>
-            <td>{{ product.quantity }}</td>
-            <td>
-              <button class="my-1">Update</button>
-              <button class="my-1">Remove</button>
+            <td class="text-center">{{ product.name }}</td>
+            <td class="text-center">{{ product.reason_for_deletion }}</td>
+            <td class="text-center">{{ product.price }}</td>
+            <td class="text-center">{{ product.quantity }}</td>
+            <td class="text-center">
+              <button class="my-1 mx-auto">Restore</button>
+              <button class="my-1 mx-auto">Delete</button>
             </td>
           </tr>
           {% endfor %}

@@ -9,4 +9,21 @@ update_item = Blueprint("update", __name__)
 
 @update_item.route('/update_item/<int:id>', methods=["GET", "POST"])
 def update(id):
-  return redirect('/')
+  product = Inventory.query.get_or_404(id)
+
+  if request.method == 'POST':
+      product.name = request.form['productName']
+      product.description = request.form['productDesc']
+      product.price = request.form['productPrice']
+      product.quantity = request.form['productQty']
+
+      try:
+          db.session.commit()
+          flash('Item Successfully Updated')
+          return redirect('/')
+      except:
+          flash('There was an issue updating your product')
+          return redirect('/')
+
+  else:
+    return redirect('/')

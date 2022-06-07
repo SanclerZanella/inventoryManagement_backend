@@ -19,21 +19,47 @@ function openModal(button, modal) {
 
 openModal('.addItemBtn', '#addNewItemModal');
 
-$(document).on('click', '.removeBtn', (e) => {
-  modal_button = e.target;
-  rm_modal = $(modal_button).data('modal');
+function openMultipleModals(button) {
+  
+  $(document).on('click', button, (e) => {
+    modal_button = e.target;
+    rm_modal = $(modal_button).data('modal');
+  
+    $(rm_modal).show(500);
 
-  $(rm_modal).show(500);
+    const span = $('.close');
+    span.click(() => {
+        $(rm_modal).hide(500);
+    });
 
-  const span = $('.close');
-  span.click(() => {
-      $(rm_modal).hide(500);
-  });
-
-  $(window).click((e) => {
-      if (e.target.id == $(rm_modal).attr('id')) {
-          $(rm_modal).hide(500);
-      };
+    $(window).click((e) => {
+        if (e.target.id == $(rm_modal).attr('id')) {
+            $(rm_modal).hide(500);
+        };
+    });
+  
   });
   
-});
+};
+
+openMultipleModals('.removeBtn');
+openMultipleModals('.updateBtn');
+
+// $(document).on('click', '.removeBtn', (e) => {
+//   modal_button = e.target;
+//   rm_modal = $(modal_button).data('modal');
+
+//   $(rm_modal).show(500);
+
+//   const span = $('.close');
+//   span.click(() => {
+//       $(rm_modal).hide(500);
+//   });
+
+//   $(window).click((e) => {
+//       if (e.target.id == $(rm_modal).attr('id')) {
+//           $(rm_modal).hide(500);
+//       };
+//   });
+  
+// });
