@@ -10,12 +10,12 @@
           
           <div class="mb-3">
             <label for="product_name" class="form-label">
-              Why would you like to remove this item from inventory?
+              Why would you like to remove <strong>{{ product.name }}</strong> from inventory?
             </label>
             <textarea type="text" class="form-control" id="delete_reason" name="deleteReason"></textarea>
           </div>
           
-          <button type="submit" class="btn btn-primary">Add Item</button>
+          <button type="submit" class="btn btn-primary">Remove Item</button>
         </form>
       
     </div>

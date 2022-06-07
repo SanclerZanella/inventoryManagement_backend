@@ -8,7 +8,7 @@
 {% block content %}
   <div class="row no-gutters">
     
-    <div class="col-10 mt-3 mb-1">
+    <div class="col-10 px-3 mx-auto mt-3 mb-1 text-center">
       
       <!-- Add New Item Modal -->
       {% include "partials/index/_addItemModal.html" %}
@@ -45,9 +45,13 @@
             <td>{{ product.price }}</td>
             <td>{{ product.quantity }}</td>
             <td>
-              <button>Update</button>
+              <button id="updateBtn_{{ product.id }}" class="updateBtn my-1" data-modal="#updateItemModal_{{ product.id }}">Update</button>
+              <!-- Update item Modal -->
+              {% include "partials/index/_updateItemModal.html" %}
               
-              <button id="removeBtn_{{ product.id }}" class="removeBtn">Remove</button>
+              <button id="removeBtn_{{ product.id }}" class="removeBtn my-1" data-modal="#removeItemModal_{{ product.id }}">
+                Remove
+              </button>
               <!-- Remove item Modal -->
               {% include "partials/index/_removeItemModal.html" %}
             </td>
@@ -89,8 +93,8 @@
             <td>{{ product.price }}</td>
             <td>{{ product.quantity }}</td>
             <td>
-              <button>Update</button>
-              <button>Remove</button>
+              <button class="my-1">Update</button>
+              <button class="my-1">Remove</button>
             </td>
           </tr>
           {% endfor %}

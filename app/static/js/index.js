@@ -18,4 +18,22 @@ function openModal(button, modal) {
 };
 
 openModal('.addItemBtn', '#addNewItemModal');
-// openModal('.addItemBtn', '#removeItemModal');
+
+$(document).on('click', '.removeBtn', (e) => {
+  modal_button = e.target;
+  rm_modal = $(modal_button).data('modal');
+
+  $(rm_modal).show(500);
+
+  const span = $('.close');
+  span.click(() => {
+      $(rm_modal).hide(500);
+  });
+
+  $(window).click((e) => {
+      if (e.target.id == $(rm_modal).attr('id')) {
+          $(rm_modal).hide(500);
+      };
+  });
+  
+});

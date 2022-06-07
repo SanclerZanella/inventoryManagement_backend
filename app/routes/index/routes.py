@@ -24,7 +24,8 @@ def index():
               flash("Item Successfuly Added")
               return redirect('/')
       except Exception as e:
-          return f"{e}"
+          flash("There was an issue adding your Item")
+          return redirect('/')
 
     else:
         products = Inventory.query.order_by(Inventory.date_created).all()

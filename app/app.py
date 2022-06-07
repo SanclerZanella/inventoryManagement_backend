@@ -32,9 +32,11 @@ def create_app(config_class=Config):
     # route imports
     from app.routes.index.routes import index_page
     from app.routes.remove.routes import remove_item
+    from app.routes.update.routes import update_item
 
     # routes registration
     app.register_blueprint(index_page)
     app.register_blueprint(remove_item)
+    app.register_blueprint(update_item)
 
     return app
