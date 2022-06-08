@@ -1,3 +1,7 @@
+from gevent import monkey
+monkey.patch_all()
+
+from flask_compress import Compress
 import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
@@ -7,6 +11,9 @@ import jinja_partials
 
 # Reusable extension for SQLAlchemy
 db = SQLAlchemy()
+
+# Create Compress with default params
+compress = Compress()
 
 def create_app(config_class=Config):
     """
@@ -18,6 +25,9 @@ def create_app(config_class=Config):
     app.secret_key = Config.SECRET_KEY
     app.config.from_object(config_class)
     app.config['SQLALCHEMY_DATABASE_URI'] = Config.DATABASE_URI
+
+    # Init compress for our Flask app
+    compress.init_app(app)
 
     # Register Partials method
     jinja_partials.register_extensions(app)
